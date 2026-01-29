@@ -1,4 +1,6 @@
 # Pre-requisites
+- VS2019 community
+- SQLServer Management Studio developer edition
 
 # Business Request
 The business has customer purchase data in local currency, but needs that data converted and needs the Customer contact information with it.
