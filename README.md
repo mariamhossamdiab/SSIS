@@ -47,7 +47,24 @@ flowchart TB
 - **SSIS Package**: The overall container that includes all components.
 - **Control Flow**: Manages the sequence of tasks (e.g., Execute SQL Task, Data Flow Task, Script Task, File System Task).
 - **Data Flow**: A subsection of the Control Flow that manages the flow of data from sources to destinations, using transformations such as data conversions and lookups.
-    
+  
+# 3. Control Flow vs. Data Flow
+Control Flow and Data Flow are distinct components in SSIS. Below is a visual representation showing examples of each:
+
+```mermaid
+graph TB
+    subgraph Control Flow
+        A[Data Flow]
+        B[Execute SQL Task]
+        C[Script Task]
+    end
+    subgraph Data Flow
+        D[Data Transformation]
+        E[Lookup]
+        F[Aggregation]
+    end
+```
+  
 # Pipline
 <img width="893" height="466" alt="image" src="https://github.com/user-attachments/assets/fcfb6033-bf57-4411-9050-783d5fd2bf56" />
 
