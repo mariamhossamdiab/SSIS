@@ -99,6 +99,8 @@ flowchart TB
 # 6. Deployment and Scheduling
 
 - **Deployment**: Deploy SSIS packages using Visual Studio to the SSIS Catalog.
+  <img width="1600" height="834" alt="image" src="https://github.com/user-attachments/assets/27ba66af-1d6d-4159-a010-5161e831281d" />
+
 - **Scheduling**: Use SQL Server Agent to schedule packages, ensuring they run automatically at set intervals.
   
 # Dataset Overview
