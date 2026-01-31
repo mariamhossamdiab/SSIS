@@ -64,7 +64,31 @@ graph TB
         F[Aggregation]
     end
 ```
-  
+# 4. Connections in SSIS
+
+SSIS uses various connection types to integrate with different data sources:
+
+- **OLE DB Connection**: For SQL Server databases.
+- **Excel Connection**: To read from or write to Excel files.
+- **Flat File Connection**: To handle CSV or text files.
+
+Connections are used within the Data Flow to connect **Sources** and **Destinations**.
+
+## 5. Error Handling in SSIS
+
+Error handling is critical in SSIS to maintain data quality. The diagram below shows how to handle errors in a Data Flow Task:
+
+```mermaid
+flowchart TB
+    A[Data Flow Task] --> B{Error Output?}
+    B -->|Yes| C[Redirect to Error Output]
+    C --> D[Flat File Destination]
+    B -->|No| E[Continue Processing]
+```
+
+- **Error Output**: Errors are redirected to an output path for further review.
+- **Flat File Destination**: Failed rows are saved for analysis.
+    
 # Pipline
 <img width="893" height="466" alt="image" src="https://github.com/user-attachments/assets/fcfb6033-bf57-4411-9050-783d5fd2bf56" />
 
