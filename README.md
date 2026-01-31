@@ -95,7 +95,59 @@ flowchart TB
 # Data flow & Transformation 
 <img width="817" height="451" alt="image" src="https://github.com/user-attachments/assets/ac668757-b858-4c49-a386-2d3a19cdcd9b" />
 
-# Deployment
+# 6. Deployment and Scheduling
+
+- **Deployment**: Deploy SSIS packages using Visual Studio to the SSIS Catalog.
+- **Scheduling**: Use SQL Server Agent to schedule packages, ensuring they run automatically at set intervals.
+  
+# Dataset Overview
+The dataset will consist of the following:
+- **SQL Server Database**: Contains financial transactions and customer details.
+- **Excel File**: Contains exchange rates for different currencies.
+- **Flat File (CSV)**: Contains a list of suppliers.
+1. **Financial Transactions Table** (SQL Server):
+   - **Table Name**: `financial_transactions`
+   - **Columns**:
+     - `transaction_id` (INT, Primary Key)
+     - `customer_id` (INT, Foreign Key)
+     - `transaction_date` (DATE)
+     - `amount` (DECIMAL)
+     - `currency` (VARCHAR)
+
+2. **Customer Details Table** (SQL Server):
+   - **Table Name**: `customer_details`
+   - **Columns**:
+     - `customer_id` (INT, Primary Key)
+     - `customer_name` (VARCHAR)
+     - `email` (VARCHAR)
+     - `phone` (VARCHAR)
+
+3. **Exchange Rates File** (Excel):
+   - **File Name**: `exchange_rates.xlsx`
+   - **Sheet Name**: `Rates`
+   - **Columns**:
+     - `currency_code` (VARCHAR)
+     - `exchange_rate` (DECIMAL)
+     - `effective_date` (DATE)
+
+4. **Supplier List File** (CSV):
+   - **File Name**: `suppliers.csv`
+   - **Columns**:
+     - `supplier_id` (INT)
+     - `supplier_name` (VARCHAR)
+     - `contact_name` (VARCHAR)
+     - `phone` (VARCHAR)
+# SSIS Package Workflow
+- **Control Flow**: 
+  - Start with an **Execute SQL Task** to create staging tables.
+  - Use a **Data Flow Task** to extract and transform the data.
+  - Include a **Script Task** to apply any custom transformations.
+  - Add a **File System Task** to archive processed files.
+- **Data Flow**:
+  - Extract data from SQL Server, Excel, and CSV sources.
+  - Perform transformations such as lookups to combine customer and transaction data.
+  - Convert currency values using data from the Excel file.
+  - Load the transformed data into a data warehouse for further analysis.
 
 # API Call for Currency Conversion
 <img width="1918" height="507" alt="image" src="https://github.com/user-attachments/assets/6f97ab81-a62b-4d84-8f8d-18677cd48960" />
