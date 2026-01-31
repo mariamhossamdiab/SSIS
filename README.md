@@ -27,6 +27,27 @@ graph TB
 - **Transform**: Apply transformations such as data conversions and lookups.
 - **Load**: Store the transformed data into a data warehouse.
   
+# 2. SSIS Package Workflow
+An SSIS package is divided into **Control Flow** and **Data Flow** components:
+```mermaid
+flowchart TB
+    subgraph subgraph1["Data Flow"]
+        direction TB
+        D[Source] --> E[Transformations]
+        E --> F[Destination]
+    end
+    subgraph subGraph0["Control Flow"]
+        B1[Execute SQL Task]        
+        B3[Script Task]
+        B4[File System Task]
+        B2["Data Flow"]
+    end
+```
+
+- **SSIS Package**: The overall container that includes all components.
+- **Control Flow**: Manages the sequence of tasks (e.g., Execute SQL Task, Data Flow Task, Script Task, File System Task).
+- **Data Flow**: A subsection of the Control Flow that manages the flow of data from sources to destinations, using transformations such as data conversions and lookups.
+    
 # Pipline
 <img width="893" height="466" alt="image" src="https://github.com/user-attachments/assets/fcfb6033-bf57-4411-9050-783d5fd2bf56" />
 
