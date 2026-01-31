@@ -10,10 +10,9 @@ You task is to bring this data together in a new SQL Server database for the bus
 <img width="893" height="466" alt="image" src="https://github.com/user-attachments/assets/fcfb6033-bf57-4411-9050-783d5fd2bf56" />
 # Data flow & Transformation 
 <img width="817" height="451" alt="image" src="https://github.com/user-attachments/assets/ac668757-b858-4c49-a386-2d3a19cdcd9b" />
+
 # 1. ETL Process Overview
-
 The ETL process in SSIS consists of three main stages:
-
 ```mermaid
 graph TB
     subgraph1[Data Sources] --> B[Extract]
